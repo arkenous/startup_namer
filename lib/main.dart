@@ -20,3 +20,11 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+class RandomWordsState extends State<RandomWords> {
+  //TODO buildメソッドを実装する
+}
+
+class RandomWords extends StatefulWidget {
+  //TODO createStateメソッドを実装する
+}
