@@ -1,3 +1,4 @@
+import 'package:english_words/english_words.dart' as prefix0;
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 
@@ -28,6 +29,33 @@ class RandomWordsState extends State<RandomWords> {
   Widget build(BuildContext context) {
     final WordPair wordPair = WordPair.random();
     return Text(wordPair.asPascalCase);
+  }
+
+  Widget _buildSuggestions() {
+    return ListView.builder(
+      padding: const EdgeInsets.all(16),
+      itemBuilder: (BuildContext _context, int i) {
+        if (i.isOdd) {
+          return Divider();
+        }
+
+        // Calculate the actual number of word pairings in the ListView, minus the divider widgets
+        final int index = i ~/ 2;
+        if (index >= _suggestions.length) {
+          _suggestions.addAll(generateWordPairs().take(10));
+        }
+        return _buildRow(_suggestions[index]);
+      },
+    );
+  }
+
+  Widget _buildRow(WordPair wordPair) {
+    return ListTile(
+      title: Text(
+        wordPair.asPascalCase,
+        style: _biggerFont,
+      ),
+    );
   }
 }
 
