@@ -26,5 +26,6 @@ class RandomWordsState extends State<RandomWords> {
 }
 
 class RandomWords extends StatefulWidget {
-  //TODO createStateメソッドを実装する
+  @override
+  RandomWordsState createState() => RandomWordsState();
 }
