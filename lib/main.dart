@@ -22,7 +22,11 @@ class MyApp extends StatelessWidget {
 }
 
 class RandomWordsState extends State<RandomWords> {
-  //TODO buildメソッドを実装する
+  @override
+  Widget build(BuildContext context) {
+    final WordPair wordPair = WordPair.random();
+    return Text(wordPair.asPascalCase);
+  }
 }
 
 class RandomWords extends StatefulWidget {
